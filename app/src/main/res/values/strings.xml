@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Platzigram</string>
+    <string name="title_activity_referencia">ReferenciaActivity</string>
+    <string name="hint_username">Nombre de Usuario</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="text_button_login">Login</string>
+    <string name="dont_have_account">¿No tienes cuenta?,</string>
+    <string name="createHere"> crea una aquí</string>
+    <string name="hint_email">Correo</string>
+    <string name="hint_name">Nombre</string>
+    <string name="hint_user">Usuario</string>
+    <string name="hint_confirm_password">Confirmar contraseña</string>
+    <string name="text_button_create_account">Únete</string>
+    <string name="toolbar_tittle_create_account">Crear cuenta</string>
+    <string name="username_card">Uriel Ramirez</string>
+    <string name="firstword_card">Hace</string>
+    <string name="timecard_card">4 dias</string>
+    <string name="likenumbercard_card">10 Me gusta</string>
+    <string name="tab_search">Buscar</string>
+    <string name="tab_home">Home</string>
+    <string name="tab_profile">Yo</string>
+    <string name="login_error">Ocurrio un error</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="diez">10</string>
+    <string name="secondword_detail">Me Gusta</string>
+    <string name="titteimagedetail">\"Todo copas en la playa\"</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="transitionName_picture">transitionNamepicture</string>
+    <string name="Buscar">searchText</string>
+    <string name="searchText">Buscar</string>
+    <string name="hint_tittle">Título</string>
+    <string name="hint_description">Descripción</string>
+    <string name="text_button_create_post">Crear post</string>
+</resources>
