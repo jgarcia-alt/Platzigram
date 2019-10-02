@@ -25,7 +25,8 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
-    private String TAG = "CreateAccountActivity";
+    private static final String TAG = "CreateAccountActivity";
+
     private Button btnJoinUs;
     private TextInputEditText edtEmail ,edtPassword;
 

@@ -80,6 +80,7 @@ public class HomeFragment extends Fragment {
             }catch (Exception e){
                 e.printStackTrace();
             }
+
             if (photoFile != null){
                 Uri photoUri = FileProvider.getUriForFile(getActivity(), "com.platzi.platzigram",photoFile);
                 intentTakePicture.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
