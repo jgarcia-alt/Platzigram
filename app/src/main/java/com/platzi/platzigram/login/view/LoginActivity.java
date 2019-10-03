@@ -1,6 +1,8 @@
 package com.platzi.platzigram.login.view;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,7 +45,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private LoginPresenter presenter;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
-    private static final String TAG = "LoginRepositoryImpl";
+    private static final String TAG = "LoginActivity";
     CallbackManager callbackManager = CallbackManager.Factory.create();
 
     @Override
@@ -58,6 +60,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                 FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                 if (firebaseUser != null) {
                     Log.w(TAG, "Usuario Logeado" + firebaseUser.getEmail());
+                    goActivityContainer();
                 } else {
                     Log.w(TAG, "Usuario no logeado");
                 }
@@ -104,16 +107,24 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     private void signInFacebookFirebase(AccessToken accessToken) {
+        Log.w(TAG, accessToken.getToken());
         AuthCredential authCredential = FacebookAuthProvider.getCredential(accessToken.getToken());
         firebaseAuth.signInWithCredential(authCredential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+
                 if (task.isSuccessful()){
+                    FirebaseUser user = task.getResult().getUser();
+                    SharedPreferences preferences = getSharedPreferences("USER", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("email", user.getEmail());
+                    editor.commit();
                     goActivityContainer();
                     Toast.makeText(LoginActivity.this,"Login Facebook Exitoso", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(LoginActivity.this,"Login Facebook No Exitoso", Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
     }
