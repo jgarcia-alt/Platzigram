@@ -1,4 +1,11 @@
 apply plugin: 'com.android.application'
+
+def FACEBOOK_APP_ID = '"'+FacebookAppId+'"' ?: '"No Token Facebook"';
+android.buildTypes.each { type ->
+    type.resValue 'string', 'FACEBOOK_APP_ID', FACEBOOK_APP_ID
+    type.buildConfigField 'String', 'FACEBOOK_APP_ID', FACEBOOK_APP_ID
+}
+
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'io.fabric'
 
