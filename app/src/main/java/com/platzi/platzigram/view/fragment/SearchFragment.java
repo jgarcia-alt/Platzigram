@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.crashlytics.android.Crashlytics;
 import com.platzi.platzigram.R;
 import com.platzi.platzigram.adapter.PictureAdapterRecyclerView;
 import com.platzi.platzigram.model.Picture;
@@ -21,6 +22,8 @@ import com.platzi.platzigram.model.Picture;
 import java.util.ArrayList;
 
 public class SearchFragment extends Fragment {
+
+    private static final String TAG = "SearchFragment";
 
     public SearchFragment() {
         // Required empty public constructor
@@ -30,6 +33,7 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        Crashlytics.log("Iniciando "+ TAG);
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
         RecyclerView pictureRecycler = view.findViewById(R.id.searchRecycler);

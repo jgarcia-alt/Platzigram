@@ -13,16 +13,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.crashlytics.android.Crashlytics;
 import com.platzi.platzigram.R;
 import com.platzi.platzigram.adapter.PictureAdapterRecyclerView;
 import com.platzi.platzigram.model.Picture;
 
 import java.util.ArrayList;
-
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ProfileFragment extends Fragment {
+    private String TAG = "ProfileFragment";
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -31,7 +32,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
+        Crashlytics.log("Inicializando " + TAG);
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         showToolbar("",false, view);
 

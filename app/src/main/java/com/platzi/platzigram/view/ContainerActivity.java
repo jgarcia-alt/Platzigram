@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -36,6 +37,7 @@ private FirebaseAuth.AuthStateListener authStateListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Crashlytics.log("Inicializando"+TAG);
         setContentView(R.layout.activity_container);
         firebaseInitialize();
         final BottomBar bottomBar = findViewById(R.id.bottombar);
@@ -105,6 +107,9 @@ private FirebaseAuth.AuthStateListener authStateListener;
             case R.id.mAbout:
                 Toast.makeText(this, "Platzi", Toast.LENGTH_SHORT).show();
                 break;
+
+            case R.id.crash:
+                Crashlytics.getInstance().crash();
         }
         return super.onOptionsItemSelected(item);
     }

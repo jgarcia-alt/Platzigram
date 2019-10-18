@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -46,9 +47,9 @@ public class CreateAccountActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                 if (firebaseUser != null) {
-                    Log.w(TAG, "Usuario Logeado" + firebaseUser.getEmail());
+                    Crashlytics.log(Log.WARN, TAG, "Usuario Logeado" + firebaseUser.getEmail());
                 }else{
-                    Log.w(TAG, "Usuario no logeado");
+                    Crashlytics.log(Log.WARN, TAG, "Usuario No Logeado");
                 }
             }
         };

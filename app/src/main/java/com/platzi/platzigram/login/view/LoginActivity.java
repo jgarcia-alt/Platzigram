@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.crashlytics.android.Crashlytics;
 import com.facebook.AccessToken;
 import com.facebook.FacebookSdk;
 import com.facebook.CallbackManager;
@@ -102,6 +103,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             public void onError(FacebookException error) {
                 Log.w(TAG, "Facebook Login Error: " + error.toString());
                 error.printStackTrace();
+                Crashlytics.logException(error);
             }
         });
     }
@@ -119,9 +121,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("email", user.getEmail());
                     editor.commit();
+                    Crashlytics.log(Log.WARN, TAG, "Login Facebook Exitoso");
                     goActivityContainer();
                     Toast.makeText(LoginActivity.this,"Login Facebook Exitoso", Toast.LENGTH_SHORT).show();
                 }else{
+                    Crashlytics.log(Log.WARN, TAG, "Login Facebook No Exitoso");
                     Toast.makeText(LoginActivity.this,"Login Facebook No Exitoso", Toast.LENGTH_SHORT).show();
                 }
 

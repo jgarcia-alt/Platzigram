@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 29
@@ -36,7 +38,8 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.0.1'
     implementation 'com.zoonref:simple-view-behavior:1.0'
     implementation 'com.google.firebase:firebase-auth:19.1.0'
+    implementation 'com.google.firebase:firebase-storage:19.1.0'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
     implementation 'com.facebook.android:facebook-android-sdk:5.5.1'
 }
 
-apply plugin: 'com.google.gms.google-services'
